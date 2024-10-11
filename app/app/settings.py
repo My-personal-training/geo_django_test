@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+# Just in case we are on Windows, we need to set the PATH to the GDAL and PROJ libraries
+if os.name == 'nt':
+    VENV_BASE = os.environ['VIRTUAL_ENV']
+    GDAL_LIBRARY_PATH = os.path.join(VENV_BASE, 'Lib\\site-packages\\osgeo\\gdal.dll')
+    os.environ['PATH'] = os.path.join(VENV_BASE, 'Lib\\site-packages\\osgeo') + ';' + os.environ['PATH']
+    os.environ['PROJ_LIB'] = os.path.join(VENV_BASE, 'Lib\\site-packages\\osgeodata\\proj') + ';' + os.environ['PATH']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
