@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.gis',
+    'django_cleanup.apps.CleanupConfig',
+
     'chfrontend',
     'chbackend',
 ]
