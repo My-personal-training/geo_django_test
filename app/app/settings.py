@@ -46,6 +46,8 @@ INSTALLED_APPS = [
 
     'django.contrib.gis',
     'django_cleanup.apps.CleanupConfig',
+    'rest_framework',
+    'rest_framework_gis', # Must be after rest_framework to override the serializers
 
     'chfrontend',
     'chbackend',
